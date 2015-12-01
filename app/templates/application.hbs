@@ -14,16 +14,20 @@
       <!-- Search Field End -->
     </div>
 </div>
-
-{{#each filteredArticles as |article|}}
-  <h1>{{article.title}}</h1>
-  <h3>{{article.npTitle}}<br/>{{article.authorName}}<br/>{{moment-format article.date 'MMMM Do, YYYY'}}</h3>
-   <h2>Tags</h2>
-   <ul>
-  {{#each article.tags as |articleTag|}} 
-      <li>{{articleTag.tag}}</li>
+{{#if searchFlag}}
+  {{#each filteredArticles as |article|}}
+    <h1>{{article.title}}</h1>
+    <h3>{{article.npTitle}}<br/>{{article.authorName}}<br/>{{moment-format article.date 'MMMM Do, YYYY'}}</h3>
+    <h2>Tags</h2>
+    <ul>
+      {{#each article.tags as |articleTag|}} 
+        <li>{{articleTag.tag}}</li>
+      {{/each}}
+    </ul>
   {{/each}}
-  </ul>
-{{/each}}
+{{else}}
+  <h1>Splash Page</h1>
+{{/if}}
+
 
 {{outlet}}

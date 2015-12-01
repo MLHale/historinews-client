@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   articles: {},
+  searchFlag: false,
   searchText: '',
   filteredArticles: function () {
     var filter = this.get('searchText');
@@ -15,6 +16,7 @@ export default Ember.Controller.extend({
   }.property('articles','searchText'),
   actions: {
     search: function(){
+      this.set('searchFlag', true);
       this.get('filteredArticles');
     },
   },
