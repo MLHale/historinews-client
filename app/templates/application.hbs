@@ -17,6 +17,7 @@
 
 {{#each filteredArticles as |article|}}
   <h1>{{article.title}}</h1>
+  <h3>{{article.npTitle}}<br/>{{article.authorName}}<br/>{{moment-format article.date 'MMMM Do, YYYY'}}</h3>
    <h2>Tags</h2>
    <ul>
   {{#each article.tags as |articleTag|}} 
