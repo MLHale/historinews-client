@@ -1,4 +1,21 @@
-{{#each articles as |article|}}
+<div class="container">
+    <div class="row">
+      <!-- Search Field Start -->
+      <div class="col-lg-5 col-md-5 col-sm-7 col-xs-12">
+        <form>
+          <div class="input-group">
+            {{input type="text" value=searchText class="form-control" placeholder="Enter something to search"}}
+              <span class="input-group-btn">
+                  <button class="btn btn-default no-border-left" type="submit" {{action 'search'}}>{{fa-icon icon="fa-search"}}</button>
+              </span>
+          </div>
+        </form>
+      </div>
+      <!-- Search Field End -->
+    </div>
+</div>
+
+{{#each filteredArticles as |article|}}
   <h1>{{article.title}}</h1>
    <h2>Tags</h2>
    <ul>
