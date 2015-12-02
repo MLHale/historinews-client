@@ -6,5 +6,6 @@ export default DS.Model.extend({
   npTitle: DS.attr('string'),
   date: DS.attr('date'),
   content: DS.attr('string'),
+  pdfLocation: DS.attr('string'),
   tags: DS.hasMany('tag', {async: false}),
 });

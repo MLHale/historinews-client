@@ -16,16 +16,16 @@
 
       <!-- Search Field Start -->
       <div class="col-lg-6 col-lg-offset-2 col-md-7 col-md-offset-1 col-sm-6 col-sm-offset-1 col-xs-12" id="search" role="search">
-        <form class="form navbar-form navbar-left" role="form" style="width:100%">
-          <div class="input-group" style="width:100%">
+        <form id="search_bar_form" class="form navbar-form navbar-left" role="form">
+          <div id="search_bar_group" class="input-group">
               <select id="search_bar_select" class="input-group-addon form-control">
                 <option value='all'>All</option>
-                <option>Title</option>
-                <option>Author</option>
-                <option>Newspaper</option>
-                <option>Date</option>
-                <option>Keywords</option>
-                <option>Article Content</option>
+                <option value='title'>Title</option>
+                <option value='authorName'>Author</option>
+                <option value='npTitle'>Newspaper</option>
+                <option value='date'>Date</option>
+                <option value='tags'>Keywords</option>
+                <option value='content'>Article Content</option>
               </select>
             {{input id="search_bar_text" type="text" value=searchText class="form-control" placeholder="Enter something to search"}}
               <span class="input-group-btn">
@@ -43,11 +43,12 @@
 
 
 
-
+<div class="container-fluid">
 
 
 {{#if searchFlag}}
   {{#each filteredArticles as |article|}}
+    <img class="image-thumbnail" src={{article.pdfLocation}}>
     <h1>{{article.title}}</h1>
     <h3>{{article.npTitle}}<br/>{{article.authorName}}<br/>{{moment-format article.date 'MMMM Do, YYYY'}}</h3>
     <h2>Tags</h2>
@@ -61,5 +62,6 @@
   <h1>Splash Page</h1>
 {{/if}}
 
+</div>
 
 {{outlet}}

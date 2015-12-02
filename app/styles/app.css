@@ -4,4 +4,11 @@
 #search_bar_text {
   width: 90%;
 }
+#search_bar_form {
+  width: 100%;
+}
+#search_bar_group {
+  width: 100%;
+}
+
 body { padding-top: 70px; }
