@@ -1,10 +1,45 @@
-<div class="container">
-    <div class="row">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <!--<div class="container-fluid">-->
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">HistoriNews</a>
+    </div>
+
+
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right"></ul>
+      <!--<form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      </div>-->
+
+<!--<div class="container-fluid ">-->
+    <!--<div class="row">-->
       <!-- Search Field Start -->
-      <div class="col-lg-5 col-md-5 col-sm-7 col-xs-12">
-        <form>
-          <div class="input-group">
-            {{input type="text" value=searchText class="form-control" placeholder="Enter something to search"}}
+      <div class="col-lg-6 col-lg-offset-2 col-md-7 col-md-offset-1 col-sm-6 col-sm-offset-1 col-xs-12" id="search" role="search">
+        <form class="form navbar-form navbar-left" role="form" style="width:100%">
+          <div class="input-group" style="width:100%">
+              <select id="search_bar_select" class="input-group-addon form-control">
+                <option value='all'>All</option>
+                <option>Title</option>
+                <option>Author</option>
+                <option>Newspaper</option>
+                <option>Date</option>
+                <option>Keywords</option>
+                <option>Article Content</option>
+              </select>
+            {{input id="search_bar_text" type="text" value=searchText class="form-control" placeholder="Enter something to search"}}
               <span class="input-group-btn">
                   <button class="btn btn-default no-border-left" type="submit" {{action 'search'}}>{{fa-icon icon="fa-search"}}</button>
               </span>
@@ -12,8 +47,21 @@
         </form>
       </div>
       <!-- Search Field End -->
-    </div>
-</div>
+    <!--</div>-->
+<!--</div>-->
+
+
+
+    </div><!-- /.navbar-collapse -->
+  <!--</div>--><!-- /.container-fluid -->
+</nav>
+
+
+
+
+
+
+
 {{#if searchFlag}}
   {{#each filteredArticles as |article|}}
     <h1>{{article.title}}</h1>

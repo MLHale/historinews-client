@@ -1,0 +1,7 @@
+#search_bar_select {
+  width: 10%;
+}
+#search_bar_text {
+  width: 90%;
+}
+body { padding-top: 70px; }
