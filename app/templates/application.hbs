@@ -44,19 +44,13 @@
 
 
 <div class="container-fluid">
-
-
 {{#if searchFlag}}
   {{#each filteredArticles as |article|}}
-    <img class="image-thumbnail" src={{article.pdfLocation}}>
-    <h1>{{article.title}}</h1>
-    <h3>{{article.npTitle}}<br/>{{article.authorName}}<br/>{{moment-format article.date 'MMMM Do, YYYY'}}</h3>
-    <h2>Tags</h2>
-    <ul>
-      {{#each article.tags as |articleTag|}} 
-        <li>{{articleTag.tag}}</li>
-      {{/each}}
-    </ul>
+    <img class="image-thumbnail" src={{article.thumb}}>
+    <h1>{{article.articleTitle}}</h1>
+    <h3>{{article.newspaperName}}<br/>{{article.authorName}}<br/>{{moment-format article.articleCreationDate 'MMMM Do, YYYY'}}</h3>
+    <h2>Keywords</h2>
+    <p>{{article.keywords}}</p>
   {{/each}}
 {{else}}
   <h1>Splash Page</h1>
