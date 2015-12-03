@@ -41,27 +41,45 @@
 </nav>
 
 
-
-
-<div class="container-fluid">
-
-
 {{#if searchFlag}}
-  {{#each filteredArticles as |article|}}
-    <img class="image-thumbnail" src={{article.pdfLocation}}>
-    <h1>{{article.title}}</h1>
-    <h3>{{article.npTitle}}<br/>{{article.authorName}}<br/>{{moment-format article.date 'MMMM Do, YYYY'}}</h3>
-    <h2>Tags</h2>
-    <ul>
-      {{#each article.tags as |articleTag|}} 
-        <li>{{articleTag.tag}}</li>
-      {{/each}}
-    </ul>
-  {{/each}}
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-1 sidebar"> <!-- Custom css in app.css -->
+        <ul class="nav nav-sidebar"> <!-- Custom css in app.css -->
+          <li>Members</li>
+          <li>Membership</li>
+          <li>Vendor Registrations</li>
+          <li>Calendar Events</li>
+          <!--<li>{{#link-to 'application.index'}}Members{{/link-to}}</li>
+          <li>{{#link-to 'application.index'}}Membership{{/link-to}}</li>
+          <li>{{#link-to 'application.index'}}Vendor Registrations{{/link-to}}</li>
+          <li>{{#link-to 'application.index'}}Calendar Events{{/link-to}}</li>-->
+        </ul>
+      </div>
+
+      <div class="col-sm-11 col-sm-offset-1">
+
+        {{#each filteredArticles as |article|}}
+          <img class="image-thumbnail" src={{article.pdfLocation}}>
+          <h1>{{article.title}}</h1>
+          <h3>{{article.npTitle}}<br/>{{article.authorName}}<br/>{{moment-format article.date 'MMMM Do, YYYY'}}</h3>
+          <h2>Tags</h2>
+          <ul>
+            {{#each article.tags as |articleTag|}} 
+              <li>{{articleTag.tag}}</li>
+            {{/each}}
+          </ul>
+        {{/each}}
+
+      </div>
+    </div>
+  </div>
+
 {{else}}
   <h1>Splash Page</h1>
 {{/if}}
 
-</div>
+
 
 {{outlet}}
