@@ -43,7 +43,7 @@
 
 
 
-{{#render-grid}}
+<!--
 <div class="container">
     <div class="well well-sm">
         <div class="btn-group">
@@ -79,7 +79,7 @@
       {{/each}}
     </div>
 </div>
-{{/render-grid}}
+-->
 
 
 
@@ -121,13 +121,44 @@
 
       <div class="col-sm-11 col-sm-offset-1">
 
-        {{#each filteredArticles as |article|}}
-          <img class="image-thumbnail" src={{article.thumb}}>
-          <h1>{{article.articleTitle}}</h1>
-          <h3>{{article.newspaperName}}<br/>{{article.authorName}}<br/>{{moment-format article.articleCreationDate 'MMMM Do, YYYY'}}</h3>
-          <h2>Keywords</h2>
-          <p>{{article.keywords}}</p>
-        {{/each}}
+        {{#render-grid}}
+        <div class="container">
+          <div class="well well-sm">
+            <div class="btn-group">
+              <a href="#" id="list" class="btn btn-default btn-sm"><span
+                class="glyphicon glyphicon-th-list"></span>List</a>
+              <a href="#" id="grid" class="btn btn-default btn-sm"><span
+                class="glyphicon glyphicon-th"></span>Grid</a>
+            </div>
+          </div>
+          <div id="products" class="row list-group">
+            {{#each filteredArticles as |article|}}
+              <div class="item  col-xs-3 col-lg-3">
+                <div class="thumbnail">
+                  <img class="image-thumbnail group list-group-image " src={{article.thumb}} alt="No Preview Available" />
+                  <div class="caption">
+                    <h3 class="group inner list-group-item-heading">
+                      {{article.articleTitle}}</h3>
+                    <p class="group inner list-group-item-text">
+                      {{article.newspaperName}}<br/>
+                      Author: {{article.authorName}}<br/>
+                      Date: {{moment-format article.articleCreationDate 'MMMM Do, YYYY'}}</p>
+                    <div class="row">
+                      <div class="col-xs-12 col-md-6">
+                        <p class="lead">
+                          Keywords</p>
+                      </div>
+                      <div class="col-xs-12 col-md-6">
+                        <p>{{article.keywords}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {{/each}}
+          </div>
+        </div>
+        {{/render-grid}}
 
       </div>
     </div>
