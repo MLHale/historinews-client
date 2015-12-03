@@ -60,6 +60,10 @@ body { padding-top: 70px; }
 
 /* for List/Grid view */
 
+.list-grid-well{
+    margin-top: -20px;
+}
+
 .glyphicon { margin-right:5px; }
 .thumbnail
 {
