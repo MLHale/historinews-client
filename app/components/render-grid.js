@@ -31,6 +31,16 @@ export default Ember.Component.extend({
 				$('#products .item').addClass('grid-group-item');
 				/* jshint ignore:end */
 			});
+			this.$(window).resize(function() {
+				/* jshint ignore:start */
+				if ($(window).width() < 768) {
+					$( "#list" ).click();
+                }
+                else {
+					$( "#grid" ).click();
+                }
+                /* jshint ignore:end */
+            });
 		});
 	}
 });
