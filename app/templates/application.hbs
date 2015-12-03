@@ -1,3 +1,80 @@
-<h2 id="title">Welcome to Ember</h2>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <!--<div class="container-fluid">-->
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">HistoriNews</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+      <!-- Search Field Start -->
+      <div class="col-lg-6 col-lg-offset-2 col-md-7 col-md-offset-1 col-sm-6 col-sm-offset-1 col-xs-12" id="search" role="search">
+        <form id="search_bar_form" class="form navbar-form navbar-left" role="form">
+          <div id="search_bar_group" class="input-group">
+              <select id="search_bar_select" class="input-group-addon form-control">
+                <option value='all'>All</option>
+                <option value='title'>Title</option>
+                <option value='authorName'>Author</option>
+                <option value='npTitle'>Newspaper</option>
+                <option value='date'>Date</option>
+                <option value='tags'>Keywords</option>
+                <option value='content'>Article Content</option>
+              </select>
+            {{input id="search_bar_text" type="text" value=searchText class="form-control" placeholder="Enter something to search"}}
+              <span class="input-group-btn">
+                  <button class="btn btn-default no-border-left" type="submit" {{action 'search'}}>{{fa-icon icon="fa-search"}}</button>
+              </span>
+          </div>
+        </form>
+      </div>
+      <!-- Search Field End -->
+
+    </div><!-- /.navbar-collapse -->
+  <!--</div>--><!-- /.container-fluid -->
+</nav>
+
+{{#if searchFlag}}
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-1 sidebar"> <!-- Custom css in app.css -->
+        <ul class="nav nav-sidebar"> <!-- Custom css in app.css -->
+          <li>Members</li>
+          <li>Membership</li>
+          <li>Vendor Registrations</li>
+          <li>Calendar Events</li>
+          <!--<li>{{#link-to 'application.index'}}Members{{/link-to}}</li>
+          <li>{{#link-to 'application.index'}}Membership{{/link-to}}</li>
+          <li>{{#link-to 'application.index'}}Vendor Registrations{{/link-to}}</li>
+          <li>{{#link-to 'application.index'}}Calendar Events{{/link-to}}</li>-->
+        </ul>
+      </div>
+
+      <div class="col-sm-11 col-sm-offset-1">
+
+        {{#each filteredArticles as |article|}}
+          <img class="image-thumbnail" src={{article.thumb}}>
+          <h1>{{article.articleTitle}}</h1>
+          <h3>{{article.newspaperName}}<br/>{{article.authorName}}<br/>{{moment-format article.articleCreationDate 'MMMM Do, YYYY'}}</h3>
+          <h2>Keywords</h2>
+          <p>{{article.keywords}}</p>
+        {{/each}}
+
+      </div>
+    </div>
+  </div>
+
+{{else}}
+  <h1>Splash Page</h1>
+{{/if}}
+
+
 
 {{outlet}}
