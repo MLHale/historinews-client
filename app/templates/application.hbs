@@ -9,18 +9,19 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
       <!-- Search Field Start -->
-      <div class="col-lg-6 col-lg-offset-2 col-md-7 col-md-offset-1 col-sm-6 col-sm-offset-1 col-xs-12" id="search" role="search">
+      <div class="col-lg-6 col-lg-offset-2 col-md-7 col-md-offset-1 col-sm-9 col-sm-offset-0 col-xs-12" id="search" role="search">
         <form id="search_bar_form" class="form navbar-form navbar-left" role="form">
           <div id="search_bar_group" class="input-group">
-              <select id="search_bar_select" class="input-group-addon form-control">
-                <option value='all'>All</option>
-                <option value='title'>Title</option>
-                <option value='authorName'>Author</option>
-                <option value='npTitle'>Newspaper</option>
-                <option value='date'>Date</option>
-                <option value='tags'>Keywords</option>
-                <option value='content'>Article Content</option>
-              </select>
+              {{#x-select value="all" id="search_bar_select" class="input-group-addon form-control" action="selectFilter"}}
+                {{#x-option value="all"}}All{{/x-option}}
+                {{#x-option value="articleTitle"}}Title{{/x-option}}
+                {{#x-option value="authorName"}}Author{{/x-option}}
+                {{#x-option value="newspaperName"}}Newspaper{{/x-option}}
+                {{#x-option value="articleCreationDate"}}Date{{/x-option}}
+                {{#x-option value="newspaperYear"}}Year{{/x-option}}
+                {{#x-option value="keywords"}}Keywords{{/x-option}}
+                {{#x-option value="ocrText"}}Article Content{{/x-option}}
+            {{/x-select}}
             {{input id="search_bar_text" type="text" value=searchText class="form-control" placeholder="Enter something to search"}}
               <span class="input-group-btn">
                   <button class="btn btn-default no-border-left" type="submit" {{action 'search'}}>{{fa-icon icon="fa-search"}}</button>
@@ -79,7 +80,7 @@
             </div>
             <div id="products" class="row list-group">
               {{#each filteredArticles as |article|}}
-                <div class="item  col-xs-3 col-lg-3">
+                <div class="item  col-xs-12 col-sm-4 col-md-3">
                   <div class="thumbnail">
                     <img class="image-thumbnail group list-group-image " src={{article.thumb}} alt="No Preview Available" />
                     <div class="caption">

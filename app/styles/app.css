@@ -1,8 +1,9 @@
 #search_bar_select {
-  width: 10%;
+  /*min-width: 40px; <-- doesn't work! */
+  width: 12%;
 }
 #search_bar_text {
-  width: 90%;
+  width: 88%;
 }
 #search_bar_form {
   width: 100%;
@@ -63,6 +64,12 @@ body { padding-top: 70px; }
 .list-grid-well{
     margin-top: -20px;
 }
+/*@media(max-width:767px) {
+    .list-grid-well {
+        display: none;
+} <-- breaks the list/grid view...*/
+
+
 
 .glyphicon { margin-right:5px; }
 .thumbnail
