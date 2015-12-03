@@ -14,8 +14,8 @@ export default Ember.Controller.extend({
       if (filterFields.all) {
         return article.get('articleTitle').match(rx) || article.get('authorName').match(rx) ||
                article.get('newspaperName').match(rx) || 
-               Date.parse(article.get('articleCreationDate')) == Date.parse(filter) ||
-               Date.parse(article.get('newspaperYear')) == Date.parse(filter) ||
+               Date.parse(article.get('articleCreationDate')) === Date.parse(filter) ||
+               Date.parse(article.get('newspaperYear')) === Date.parse(filter) ||
                article.get('keywords').match(rx) || article.get('ocrText').match(rx);
       }
       else if (filterFields.articleTitle) {
@@ -28,10 +28,10 @@ export default Ember.Controller.extend({
         return article.get('newspaperName').match(rx);
       }
       else if (filterFields.articleCreationDate) {
-        return Date.parse(article.get('articleCreationDate')) == Date.parse(filter);
+        return Date.parse(article.get('articleCreationDate')) === Date.parse(filter);
       }
       else if (filterFields.newspaperYear) {
-        return Date.parse(article.get('newspaperYear')) == Date.parse(filter);
+        return Date.parse(article.get('newspaperYear')) === Date.parse(filter);
       }
       else if (filterFields.keywords) {
         return article.get('keywords').match(rx);
@@ -51,7 +51,7 @@ export default Ember.Controller.extend({
       
       // Set the filter selection object
       for (var prop in filterFields) {
-        if (prop == selection) {
+        if (prop === selection) {
           filterFields[prop] = true;
         }
         else {

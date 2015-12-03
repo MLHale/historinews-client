@@ -35,7 +35,7 @@
   <!--</div>--><!-- /.container-fluid -->
 </nav>
 
-{{!#if searchFlag}}
+{{#if searchFlag}}
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-1 sidebar"> <!-- Custom css in app.css -->
@@ -111,10 +111,8 @@
 
     </div>
   </div>
-
-{{!--else}}
 {{else}}
   <h1>Splash Page</h1>
-{{/if--}}
+{{/if}}
 
 {{outlet}}
