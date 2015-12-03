@@ -2,12 +2,6 @@
   <!--<div class="container-fluid">-->
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
       <a class="navbar-brand" href="#">HistoriNews</a>
     </div>
 
@@ -41,41 +35,86 @@
   <!--</div>--><!-- /.container-fluid -->
 </nav>
 
-{{#if searchFlag}}
-
+{{!#if searchFlag}}
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-1 sidebar"> <!-- Custom css in app.css -->
         <ul class="nav nav-sidebar"> <!-- Custom css in app.css -->
-          <li>Members</li>
-          <li>Membership</li>
-          <li>Vendor Registrations</li>
-          <li>Calendar Events</li>
-          <!--<li>{{#link-to 'application.index'}}Members{{/link-to}}</li>
-          <li>{{#link-to 'application.index'}}Membership{{/link-to}}</li>
-          <li>{{#link-to 'application.index'}}Vendor Registrations{{/link-to}}</li>
-          <li>{{#link-to 'application.index'}}Calendar Events{{/link-to}}</li>-->
+          <div class="container-fluid">
+          	<h3>Refine By</h3>
+            <li><strong>Year</strong></li>
+            <div>
+              {{bootstrap-datepicker autoclose=true startDate="01/01/1900" startView="decade" placeholder="Start Date" class="form-control"}}
+              {{bootstrap-datepicker autoclose=true startDate="01/01/1900" startView="decade" placeholder="End Date" class="form-control"}}
+              <span class="input-group-btn">
+                  <button class="btn btn-default no-border-left" type="submit" {{action 'find_by_year'}}>Search</button>
+              </span>
+              <br>
+            </div>
+
+            <li><strong>Keywords</strong></li>
+            <div>
+            <form role="form">
+			  {{#each articles as |article|}}
+			  <div class="checkbox">
+			    <label><input type="checkbox" value={{article.keywords}}>{{article.keywords}}</label>
+			  </div>
+			  {{/each}}
+			</form>
+            </div>
+          </div>
         </ul>
       </div>
 
       <div class="col-sm-11 col-sm-offset-1">
-
-        {{#each filteredArticles as |article|}}
-          <img class="image-thumbnail" src={{article.thumb}}>
-          <h1>{{article.articleTitle}}</h1>
-          <h3>{{article.newspaperName}}<br/>{{article.authorName}}<br/>{{moment-format article.articleCreationDate 'MMMM Do, YYYY'}}</h3>
-          <h2>Keywords</h2>
-          <p>{{article.keywords}}</p>
-        {{/each}}
-
+        <div class="row">
+          {{#render-grid}}
+          <div class="container-fluid">
+            <div class="row">
+              <div class="list-grid-well well well-sm">
+                <div class="btn-group">
+                  <a href="#" id="list" class="btn btn-default btn-sm pull-right">{{fa-icon icon="fa-bars"}} List</a>
+                  <a href="#" id="grid" class="btn btn-default btn-sm pull-right">{{fa-icon icon="fa-th"}} Grid</a>
+                </div>
+              </div>
+            </div>
+            <div id="products" class="row list-group">
+              {{#each filteredArticles as |article|}}
+                <div class="item  col-xs-3 col-lg-3">
+                  <div class="thumbnail">
+                    <img class="image-thumbnail group list-group-image " src={{article.thumb}} alt="No Preview Available" />
+                    <div class="caption">
+                      <h3 class="group inner list-group-item-heading">
+                        {{article.articleTitle}}</h3>
+                      <p class="group inner list-group-item-text">
+                        {{article.newspaperName}}<br/>
+                        Author: {{article.authorName}}<br/>
+                        Date: {{moment-format article.articleCreationDate 'MMMM Do, YYYY'}}</p>
+                      <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                          <p class="lead">
+                            Keywords</p>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                          <p>{{article.keywords}}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {{/each}}
+            </div>
+          </div>
+          {{/render-grid}}
+        </div>
       </div>
+
     </div>
   </div>
 
+{{!--else}}
 {{else}}
   <h1>Splash Page</h1>
-{{/if}}
-
-
+{{/if--}}
 
 {{outlet}}
