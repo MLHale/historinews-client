@@ -18,7 +18,7 @@ module.exports = function(app) {
       'articles': [ 
         {
           id: 1,
-          keywords: 'Council Bids Florence Tribune FOXY WIFE',
+          keywords: ['Council Bids','Florence Tribune','FOXY WIFE'],
           newspaperName: 'The Florence Tribune',
           newspaperYear: 1909,
           articleTitle: 'Council Lays Over Bids',
@@ -30,7 +30,7 @@ module.exports = function(app) {
         },
         {
           id: 2,
-          keywords: 'Williams Syrup Mill',
+          keywords: ['Williams','Syrup','Mill'],
           newspaperName: 'The Monitor',
           newspaperYear: 1915,
           articleTitle: 'Announces Candidacy For Senatorial Toga',
@@ -42,7 +42,7 @@ module.exports = function(app) {
         },
         {
           id: 3,
-          keywords: 'Diplomatic Work Mediator Tommy Curran',
+          keywords: ['Diplomatic Work','Mediator','Tommy Curran'],
           newspaperName: 'The Mediator',
           newspaperYear: 1920,
           articleTitle: 'County Road Builders Busy',

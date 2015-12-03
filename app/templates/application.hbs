@@ -35,7 +35,7 @@
   <!--</div>--><!-- /.container-fluid -->
 </nav>
 
-{{#if searchFlag}}
+{{!--#if searchFlag --}}
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-1 sidebar"> <!-- Custom css in app.css -->
@@ -48,6 +48,7 @@
               {{bootstrap-datepicker autoclose=true startDate="01/01/1900" startView="decade" placeholder="End Date" class="form-control"}}
               <span class="input-group-btn">
                   <button class="btn btn-default no-border-left" type="submit" {{action 'find_by_year'}}>Search</button>
+
               </span>
               <br>
             </div>
@@ -79,7 +80,7 @@
               </div>
             </div>
             <div id="products" class="row list-group">
-              {{#each filteredArticles as |article|}}
+              {{#each articles as |article|}}
                 <div class="item  col-xs-12 col-sm-4 col-md-3">
                   <div class="thumbnail">
                     <img class="image-thumbnail group list-group-image " src={{article.thumb}} alt="No Preview Available" />
@@ -111,8 +112,8 @@
 
     </div>
   </div>
-{{else}}
+{{!--else}}
   <h1>Splash Page</h1>
-{{/if}}
+{{/if --}}
 
 {{outlet}}
