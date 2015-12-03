@@ -1,11 +1,13 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  title: DS.attr('string'),
+  keywords: DS.attr('string'),
+  newspaperName: DS.attr('string'),
+  newspaperYear: DS.attr('number'),
+  articleTitle: DS.attr('string'),
   authorName: DS.attr('string'),
-  npTitle: DS.attr('string'),
-  date: DS.attr('date'),
-  content: DS.attr('string'),
+  articleCreationDate: DS.attr('date'),
+  ocrText: DS.attr('string'),
   pdfLocation: DS.attr('string'),
-  tags: DS.hasMany('tag', {async: false}),
+  thumb: DS.attr('string'),
 });
