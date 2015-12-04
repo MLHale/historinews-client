@@ -13,9 +13,9 @@ module.exports = function(app) {
   var apiRouter = express.Router();
 
 
-  apiRouter.get('/articles', function(req, res) {
+  apiRouter.get('/newspapers', function(req, res) {
     res.send({
-      'articles': [ 
+      'newspapers': [ 
         {
           id: 1,
           keywords: ['Council Bids','Florence Tribune','FOXY WIFE'],

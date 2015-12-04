@@ -14,9 +14,9 @@
       <li><strong>Keywords</strong></li>
         <div>
           <form role="form">
-           {{#each articles as |article|}}
+           {{#each newspapers as |newspaper|}}
            <div class="checkbox">
-              {{#each article.keywords as |keyword|}}
+              {{#each newspaper.keywords as |keyword|}}
                  <label><input type="checkbox" value={{keyword}}>{{keyword}}</label>
               {{/each}}
            </div>
