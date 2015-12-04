@@ -35,7 +35,7 @@
   <!--</div>--><!-- /.container-fluid -->
 </nav>
 
-{{!--#if searchFlag --}}
+{{#if searchFlag}}
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-1 sidebar"> <!-- Custom css in app.css -->
@@ -44,8 +44,8 @@
           	<h3>Refine By</h3>
             <li><strong>Year</strong></li>
             <div>
-              {{bootstrap-datepicker autoclose=true startDate="01/01/1900" startView="decade" placeholder="Start Date" class="form-control"}}
-              {{bootstrap-datepicker autoclose=true startDate="01/01/1900" startView="decade" placeholder="End Date" class="form-control"}}
+              {{bootstrap-datepicker autoclose=true startDate="01/01/1990" placeholder="Start Date" class="form-control"}}
+              {{bootstrap-datepicker autoclose=true startDate='01/01/1900' startView="decade" placeholder="End Date" class="form-control"}}
               <span class="input-group-btn">
                   <button class="btn btn-default no-border-left" type="submit" {{action 'find_by_year'}}>Search</button>
 
@@ -112,8 +112,8 @@
 
     </div>
   </div>
-{{!--else}}
+{{else}}
   <h1>Splash Page</h1>
-{{/if --}}
+{{/if}}
 
 {{outlet}}

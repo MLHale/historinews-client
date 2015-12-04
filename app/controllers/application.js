@@ -2,26 +2,28 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   articles: {},
   searchText: '',
-  searchOptions: {all: true},
+  searchOptions: {all: true, articleTitle: false, authorName: false, newspaperName: false,articleCreationDate: false, newspaperYear: false, keywords: false, ocrText: false,},
   filterOptions: {startDate: 1900, endData: 2000},
   searchFlag: false,
   actions: {
     search: function(){
-      var articles = this.store.query('article', this.get('filterOptions'));
+      var articles = this.store.query('article', this.get('searchOptions'));
       this.set('articles', articles);
+      this.set('searchFlag', true);
     },
     selectFilter: function(selection, component) { 
-      var filterFields = this.get('filterFields');
+      var searchOptions = this.get('searchOptions');
       
       // Set the filter selection object
-      for (var prop in filterFields) {
+      for (var prop in searchOptions) {
         if (prop === selection) {
-          filterFields[prop] = true;
+          searchOptions[prop] = true;
         }
         else {
-          filterFields[prop] = false;
+          searchOptions[prop] = false;
         } 
       }
     },
   },
 });
+
