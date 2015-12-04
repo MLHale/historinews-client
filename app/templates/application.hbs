@@ -38,7 +38,7 @@
 {{#if searchFlag}}
   <div class="container-fluid">
     <div class="row">
-      <div class="col-sm-1 sidebar"> <!-- Custom css in app.css -->
+      <div class="col-sm-2 sidebar"> <!-- Custom css in app.css -->
         <ul class="nav nav-sidebar"> <!-- Custom css in app.css -->
           <div class="container-fluid">
           	<h3>Refine By</h3>
@@ -58,7 +58,10 @@
             <form role="form">
 			  {{#each articles as |article|}}
 			  <div class="checkbox">
-			    <label><input type="checkbox" value={{article.keywords}}>{{article.keywords}}</label>
+          {{#each article.keywords as |keyword|}}
+              {{log keyword}}
+			       <label><input type="checkbox" value={{keyword}}>{{keyword}}</label>
+          {{/each}}
 			  </div>
 			  {{/each}}
 			</form>
@@ -67,7 +70,7 @@
         </ul>
       </div>
 
-      <div class="col-sm-11 col-sm-offset-1">
+      <div class="col-sm-11 col-sm-offset-2">
         <div class="row">
           {{#render-grid}}
           <div class="container-fluid">
@@ -113,7 +116,8 @@
     </div>
   </div>
 {{else}}
-  <h1>Splash Page</h1>
+  <h1 class="text-center">Welcome to HistoriNews!</h1>
+  <h2 class="text-center">Where your past is our present!</h2>
 {{/if}}
 
 {{outlet}}
