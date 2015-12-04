@@ -2,22 +2,22 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   newspapers: {},
   searchText: '',
-  searchOptions: {all: true, articleTitle: false, authorName: false, newspaperName: false,articleCreationDate: false, newspaperYear: false, keywords: false, ocrText: false,},
+  searchOptions: {all: true, newspaperTitle: false, authorName: false, newspaperName: false,newspaperCreationDate: false, newspaperYear: false, keywords: false, ocrText: false,},
   filterOptions: {startDate: 1900, endData: 2000},
   searchFlag: false,
 
-  articlesYearSorting: ['newspaperYear:desc'],
-  articlesAuthorSorting: ['authorName'],
+  newspapersYearSorting: ['newspaperYear:desc'],
+  newspapersAuthorSorting: ['authorName'],
   
-  sortedArticlesYear: Ember.computed.sort('posts', 'articlesYearSorting'),
-  sortedArticlesAuthor: Ember.computed.sort('posts', 'articlesAuthorSorting'),
+  sortednewspapersYear: Ember.computed.sort('posts', 'newspapersYearSorting'),
+  sortednewspapersAuthor: Ember.computed.sort('posts', 'newspapersAuthorSorting'),
 
   actions: {
     search: function(){
       var newspapers = this.store.query('newspaper', this.get('searchOptions'));
       this.set('newspapers', newspapers);
       this.set('searchFlag', true);
-      console.log(this.get('sortedArticlesYear'));
+      console.log(this.get('sortednewspapersYear'));
 
     },
     selectFilter: function(selection, component) { 
