@@ -86,7 +86,7 @@ module.exports = function(app) {
           newspaperCreationDate: -1711998000000,           
           ocrText: readTextFile('/opt/historinews-client/server/mocks/Monitor_Oct_02_1915.txt'),
           pdfLocation: 'Monitor_Oct_02_1915.pdf',
-          thumb: 'Monitor_Oct_02_1915.jpg',
+          thumb: 'Mediator_Dec_24_1920.jpg',
         },
         {
           id: 7,
@@ -98,7 +98,7 @@ module.exports = function(app) {
           newspaperCreationDate: -1711998000000,           
           ocrText: readTextFile('/opt/historinews-client/server/mocks/Monitor_Oct_02_1915.txt'),
           pdfLocation: 'Monitor_Oct_02_1915.pdf',
-          thumb: 'Monitor_Oct_02_1915.jpg',
+          thumb: 'Mediator_Dec_24_1920.jpg',
         },
         {
           id: 8,
@@ -110,7 +110,7 @@ module.exports = function(app) {
           newspaperCreationDate: -1711998000000,           
           ocrText: readTextFile('/opt/historinews-client/server/mocks/Monitor_Oct_02_1915.txt'),
           pdfLocation: 'Monitor_Oct_02_1915.pdf',
-          thumb: 'Monitor_Oct_02_1915.jpg',
+          thumb: 'Mediator_Dec_24_1920.jpg',
         },
         {
           id: 9,
@@ -122,7 +122,7 @@ module.exports = function(app) {
           newspaperCreationDate: -1711998000000,           
           ocrText: readTextFile('/opt/historinews-client/server/mocks/Monitor_Oct_02_1915.txt'),
           pdfLocation: 'Monitor_Oct_02_1915.pdf',
-          thumb: 'Monitor_Oct_02_1915.jpg',
+          thumb: 'Mediator_Dec_24_1920.jpg',
         },
         {
           id: 10,
@@ -134,7 +134,7 @@ module.exports = function(app) {
           newspaperCreationDate: -1711998000000,           
           ocrText: readTextFile('/opt/historinews-client/server/mocks/Monitor_Oct_02_1915.txt'),
           pdfLocation: 'Monitor_Oct_02_1915.pdf',
-          thumb: 'Monitor_Oct_02_1915.jpg',
+          thumb: 'Mediator_Dec_24_1920.jpg',
         },
         {
           id: 11,
@@ -158,7 +158,7 @@ module.exports = function(app) {
           newspaperCreationDate: -1711998000000,           
           ocrText: readTextFile('/opt/historinews-client/server/mocks/Monitor_Oct_02_1915.txt'),
           pdfLocation: 'Monitor_Oct_02_1915.pdf',
-          thumb: 'Monitor_Oct_02_1915.jpg',
+          thumb: 'Mediator_Dec_24_1920.jpg',
         },
         {
           id: 13,
@@ -206,7 +206,7 @@ module.exports = function(app) {
           newspaperCreationDate: -1711998000000,           
           ocrText: readTextFile('/opt/historinews-client/server/mocks/Monitor_Oct_02_1915.txt'),
           pdfLocation: 'Monitor_Oct_02_1915.pdf',
-          thumb: 'Monitor_Oct_02_1915.jpg',
+          thumb: 'Mediator_Dec_24_1920.jpg',
         },
         {
           id: 17,
@@ -218,7 +218,7 @@ module.exports = function(app) {
           newspaperCreationDate: -1711998000000,           
           ocrText: readTextFile('/opt/historinews-client/server/mocks/Monitor_Oct_02_1915.txt'),
           pdfLocation: 'Monitor_Oct_02_1915.pdf',
-          thumb: 'Monitor_Oct_02_1915.jpg',
+          thumb: 'Mediator_Dec_24_1920.jpg',
         },
         {
           id: 18,
@@ -230,7 +230,7 @@ module.exports = function(app) {
           newspaperCreationDate: -1711998000000,           
           ocrText: readTextFile('/opt/historinews-client/server/mocks/Monitor_Oct_02_1915.txt'),
           pdfLocation: 'Monitor_Oct_02_1915.pdf',
-          thumb: 'Monitor_Oct_02_1915.jpg',
+          thumb: 'Mediator_Dec_24_1920.jpg',
         },
         {
           id: 19,
@@ -242,7 +242,7 @@ module.exports = function(app) {
           newspaperCreationDate: -1711998000000,           
           ocrText: readTextFile('/opt/historinews-client/server/mocks/Monitor_Oct_02_1915.txt'),
           pdfLocation: 'Monitor_Oct_02_1915.pdf',
-          thumb: 'Monitor_Oct_02_1915.jpg',
+          thumb: 'Mediator_Dec_24_1920.jpg',
         },
         {
           id: 20,
@@ -254,7 +254,7 @@ module.exports = function(app) {
           newspaperCreationDate: -1711998000000,           
           ocrText: readTextFile('/opt/historinews-client/server/mocks/Monitor_Oct_02_1915.txt'),
           pdfLocation: 'Monitor_Oct_02_1915.pdf',
-          thumb: 'Monitor_Oct_02_1915.jpg',
+          thumb: 'Mediator_Dec_24_1920.jpg',
         },
       ],     
     });

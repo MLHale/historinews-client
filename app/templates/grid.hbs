@@ -24,7 +24,7 @@
         {{#each pagedNewsPapers as |newspaper|}}
           <div class="item col-xs-12 col-sm-4 col-md-3">
             <div class="thumbnail">
-              <img class="image-thumbnail group list-group-image " src={{newspaper.thumb}} alt="No Preview Available" />
+              <img class="image-thumbnail group list-group-image " src={{newspaper.thumb}} onerror="src='not_available.jpg'" alt="No Preview Available" />
               <div class="caption">
                 <h3 class="group inner list-group-item-heading">
                   {{newspaper.newspaperTitle}}</h3>

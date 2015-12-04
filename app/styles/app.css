@@ -75,7 +75,9 @@ body { padding-top: 70px; }
         display: none;
 } <-- breaks the list/grid view...*/
 
-
+/*.image-thumbnail {
+  height: 200px;
+}  <-- gets overridden */ 
 
 .glyphicon { margin-right:5px; }
 .thumbnail
