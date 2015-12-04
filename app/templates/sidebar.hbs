@@ -5,24 +5,24 @@
       <li><strong>Newspaper Name</strong></li>
         <div>
            {{#each uniqueNewspaperNames as |newspaperName|}}
-             <div class="checkbox">
-               <label><input type="checkbox" value={{newspaperName}}>{{newspaperName}}</label><br>
+             <div class="checkbox"> <!--creates a checkbox for each uniqe Newspaper Name-->
+               <label><input class="NewspaperName" type="checkbox" value={{newspaperName}}>{{newspaperName}}</label><br>
              </div>
            {{/each}}
         </div>
       <li><strong>Period</strong></li>
         <div>
-           <div class="checkbox">
-              <label><input type="checkbox" value="1870-1900">Gilded Age</label><br>
-              <label><input type="checkbox" value="1890-1920">Progressive Era</label><br>
-              <label><input type="checkbox" value="1939-1945">World War II</label><br>
-              <label><input type="checkbox" value="1950-1953">Korean War</label><br>
+           <div class="checkbox"> <!--creates a checkbox for different periods of time-->
+              <label><input class="Period" type="checkbox" value="Gilded Age">Gilded Age (1870-1900)</label><br>
+              <label><input class="Period" type="checkbox" value="Progressive Era">Progressive Era (1890-1920)</label><br>
+              <label><input class="Period" type="checkbox" value="World War II">World War II (1939-1945)</label><br>
+              <label><input class="Period" type="checkbox" value="Korean War">Korean War (1950-1953)</label><br>
            </div>
         </div>
         <li><strong>Year</strong></li>
-          <div>
-            {{bootstrap-datepicker autoclose=true startDate="01/01/1990" startView="decade" placeholder="Start Date" class="form-control"}}
-            {{bootstrap-datepicker autoclose=true startDate='01/01/1900' startView="decade" placeholder="End Date" class="form-control"}}
+          <div> <!--uses bootstrap-datepicker to create a calendar pop-up to select a specific date-->
+            {{bootstrap-datepicker autoclose=true startDate="01/01/1990" startView="decade" placeholder="Start Date" class="form-control" id="startDate"}}
+            {{bootstrap-datepicker autoclose=true startDate='01/01/1900' startView="decade" placeholder="End Date" class="form-control" id="endDate"}}
             <span class="input-group-btn">
                 <button class="btn btn-default no-border-left" type="submit" {{action 'filterResults'}}>{{fa-icon icon="fa-arrow-right"}}</button>
             </span>
