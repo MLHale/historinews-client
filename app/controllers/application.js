@@ -10,6 +10,8 @@ export default Ember.Controller.extend({
 
   sortProperty: ['newspaperTitle'],  
   sortedNewspapers: Ember.computed.sort('newspapers', 'sortProperty'),
+  newspaperNames: Ember.computed.mapBy('sortedNewspapers', 'newspaperName'),
+  uniqueNewspaperNames: Ember.computed.uniq('newspaperNames'),
 
   // setup our query params
   queryParams: ["page", "perPage"],

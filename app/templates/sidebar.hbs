@@ -4,26 +4,27 @@
       <h3>Refine By</h3>
       <li><strong>Newspaper Name</strong></li>
         <div>
-           {{#each sortedNewspapers as |newspaper|}}
-           <div class="checkbox">
-                 <label><input type="checkbox" value={{newspaper.newspaperName}}>{{newspaper.newspaperName}}</label>
-           </div>
-         {{/each}}
+           {{#each uniqueNewspaperNames as |newspaperName|}}
+             <div class="checkbox">
+               <label><input type="checkbox" value={{newspaperName}}>{{newspaperName}}</label><br>
+             </div>
+           {{/each}}
         </div>
       <li><strong>Period</strong></li>
         <div>
            <div class="checkbox">
-              <label><input type="checkbox" value="">Golden Age</label>
-              <label><input type="checkbox" value="">Blah</label>
-              <label><input type="checkbox" value="">Blah</label>
+              <label><input type="checkbox" value="1870-1900">Gilded Age</label><br>
+              <label><input type="checkbox" value="1890-1920">Progressive Era</label><br>
+              <label><input type="checkbox" value="1939-1945">World War II</label><br>
+              <label><input type="checkbox" value="1950-1953">Korean War</label><br>
            </div>
         </div>
         <li><strong>Year</strong></li>
           <div>
-            {{bootstrap-datepicker autoclose=true startDate="01/01/1990" placeholder="Start Date" class="form-control"}}
+            {{bootstrap-datepicker autoclose=true startDate="01/01/1990" startView="decade" placeholder="Start Date" class="form-control"}}
             {{bootstrap-datepicker autoclose=true startDate='01/01/1900' startView="decade" placeholder="End Date" class="form-control"}}
             <span class="input-group-btn">
-                <button class="btn btn-default no-border-left" type="submit" {{action 'find_by_year'}}>{{fa-icon icon="fa-arrow-right"}}</button>
+                <button class="btn btn-default no-border-left" type="submit" {{action 'filterResults'}}>{{fa-icon icon="fa-arrow-right"}}</button>
             </span>
             <br>
           </div>
