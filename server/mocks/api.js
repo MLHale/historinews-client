@@ -54,7 +54,7 @@ module.exports = function(app) {
         },
         {
           id: 4,
-          keywords: 'Diplomatic Work Mediator Tommy Curran',
+          keywords: ['Diplomatic Work','Mediator','Tommy Curran'],
           newspaperName: 'The Mediator',
           newspaperYear: 1920,
           articleTitle: 'County Road Builders Busy',
@@ -66,7 +66,7 @@ module.exports = function(app) {
         },
         {
           id: 5,
-          keywords: 'Diplomatic Work Mediator Tommy Curran',
+          keywords: ['Diplomatic Work','Mediator','Tommy Curran'],
           newspaperName: 'The Mediator',
           newspaperYear: 1920,
           articleTitle: 'County Road Builders Busy',

@@ -1,0 +1,28 @@
+<div class="col-sm-1 sidebar"> <!-- Custom css in app.css -->
+  <ul class="nav nav-sidebar"> <!-- Custom css in app.css -->
+    <div class="container-fluid">
+      <h3>Refine By</h3>
+        <li><strong>Year</strong></li>
+          <div>
+            {{bootstrap-datepicker autoclose=true startDate="01/01/1990" placeholder="Start Date" class="form-control"}}
+            {{bootstrap-datepicker autoclose=true startDate='01/01/1900' startView="decade" placeholder="End Date" class="form-control"}}
+            <span class="input-group-btn">
+                <button class="btn btn-default no-border-left" type="submit" {{action 'find_by_year'}}>Search</button>
+            </span>
+            <br>
+          </div>
+      <li><strong>Keywords</strong></li>
+        <div>
+          <form role="form">
+           {{#each articles as |article|}}
+           <div class="checkbox">
+              {{#each article.keywords as |keyword|}}
+                 <label><input type="checkbox" value={{keyword}}>{{keyword}}</label>
+              {{/each}}
+           </div>
+         {{/each}}
+         </form>
+        </div>
+    </div>
+  </ul>
+</div>
