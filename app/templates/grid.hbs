@@ -21,7 +21,7 @@
         </div>
       </div>
       <div id="products" class="row list-group">
-        {{#each sortedNewspapers as |newspaper|}}
+        {{#each pagedNewsPapers as |newspaper|}}
           <div class="item col-xs-12 col-sm-4 col-md-3">
             <div class="thumbnail">
               <img class="image-thumbnail group list-group-image " src={{newspaper.thumb}} alt="No Preview Available" />
@@ -48,5 +48,8 @@
       </div>
     </div>
     {{/render-grid}}
+  </div>
+  <div class="text-center">
+    {{page-numbers content=pagedNewsPapers showFL=true}}
   </div>
 </div>
