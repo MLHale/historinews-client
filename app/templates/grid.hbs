@@ -5,13 +5,23 @@
       <div class="row">
         <div class="list-grid-well well well-sm">
           <div class="btn-group">
-            <a href="#" id="list" class="btn btn-default btn-sm pull-right">{{fa-icon icon="fa-bars"}} List</a>
-            <a href="#" id="grid" class="btn btn-default btn-sm pull-right">{{fa-icon icon="fa-th"}} Grid</a>
+              <button id="grid" class="btn btn-default btn-sm">{{fa-icon icon="fa-th"}}</button>
+              <button id="list" class="btn btn-default btn-sm">{{fa-icon icon="fa-bars"}}</button>
+          </div>
+          <div class="sort-dropdown pull-right">
+            Sort by
+          {{#x-select value="newspaperTitle" action="selectSort"}}
+                {{#x-option value="newspaperTitle"}}Title{{/x-option}}
+                {{#x-option value="authorName"}}Author{{/x-option}}
+                {{#x-option value="newspaperName"}}Newspaper{{/x-option}}
+                {{#x-option value="newspaperCreationDate"}}Date{{/x-option}}
+                {{#x-option value="newspaperYear"}}Year{{/x-option}}
+            {{/x-select}}
           </div>
         </div>
       </div>
       <div id="products" class="row list-group">
-        {{#each newspapers as |newspaper|}}
+        {{#each sortedNewspapers as |newspaper|}}
           <div class="item col-xs-12 col-sm-4 col-md-3">
             <div class="thumbnail">
               <img class="image-thumbnail group list-group-image " src={{newspaper.thumb}} alt="No Preview Available" />
