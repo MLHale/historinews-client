@@ -74,6 +74,9 @@ export default Ember.Controller.extend({
     selectSort: function(selection, component){
       this.set('sortProperty', [selection]);
     },
+    reset: function(){
+      this.set('searchFlag', false);
+    },
   },
 });
 

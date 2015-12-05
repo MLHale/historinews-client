@@ -2,14 +2,14 @@
   <!--<div class="container-fluid">-->
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">HistoriNews</a>
+      <a class="navbar-brand" href="#" {{action 'reset'}}>HistoriNews</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
       <!-- Search Field Start -->
-      <div class="col-lg-6 col-lg-offset-2 col-md-7 col-md-offset-1 col-sm-9 col-sm-offset-0 col-xs-12" id="search" role="search">
+      <div class="col-lg-8 col-lg-offset-1 col-md-8 col-md-offset-1 col-sm-9 col-sm-offset-0 col-xs-12" id="search" role="search">
         <form id="search_bar_form" class="form navbar-form navbar-left" role="form">
           <div id="search_bar_group" class="input-group">
               {{#x-select value="all" id="search_bar_select" class="input-group-addon form-control" action="selectFilter"}}
@@ -20,7 +20,7 @@
                 {{#x-option value="newspaperCreationDate"}}Date{{/x-option}}
                 {{#x-option value="newspaperYear"}}Year{{/x-option}}
                 {{#x-option value="keywords"}}Keywords{{/x-option}}
-                {{#x-option value="ocrText"}}newspaper Content{{/x-option}}
+                {{#x-option value="ocrText"}}Content{{/x-option}}
             {{/x-select}}
             {{input id="search_bar_text" type="text" value=searchText class="form-control" placeholder="Enter something to search"}}
               <span class="input-group-btn">
