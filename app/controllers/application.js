@@ -55,12 +55,27 @@ export default Ember.Controller.extend({
         this.set('filterOptions.endDate', end);
       }
 
-      console.log(this.filterOptions); //woo, it works
+      var searchString = {searchText: this.get('searchText')};
+      var searchOptions = this.get('searchOptions');
+      var filterOptions = this.get('filterOptions');
+
+
+      var refineQuery = Ember.$.extend(searchString, searchOptions, filterOptions);
+
+
+      console.log(refineQuery); //woo, it works
     },
     search: function(){
-      var newspapers = this.store.query('newspaper', this.get('searchOptions'));
+      var stringSearch = {};
+      var searchString = {searchText: this.get('searchText')};
+      var searchOptions = this.get('searchOptions');
+      var searchQuery = Ember.$.extend(stringSearch, searchString, searchOptions);
+
+      var newspapers = this.store.query('newspaper', searchQuery);
+
       this.set('newspapers', newspapers);
       this.set('searchFlag', true);
+      
       Ember.$(":checkbox").prop("checked", false); // Resets all checkboxes whenever something is searched for
     },
     selectFilter: function(selection, component) { 
