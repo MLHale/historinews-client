@@ -31,25 +31,29 @@ export default Ember.Controller.extend({
 
   actions: {
     filterResults: function(){
-      var checkedNewspaperNames = $('.NewspaperName:checkbox:checked').map(function() { //Finds all selected Newspaper Names
+      var checkedNewspaperNames = Ember.$('.NewspaperName:checkbox:checked').map(function() { //Finds all selected Newspaper Names
           return this.value;
       }).get();
       checkedNewspaperNames = checkedNewspaperNames.join("|"); //deliminated by |
       this.set('filterOptions.name', checkedNewspaperNames);
 
-      var checkedPeriods = $('.Period:checkbox:checked').map(function() { //Finds all selected Period times
+      var checkedPeriods = Ember.$('.Period:checkbox:checked').map(function() { //Finds all selected Period times
           return this.value;
       }).get();
       checkedPeriods = checkedPeriods.join("|"); //deliminated by |
       this.set('filterOptions.period', checkedPeriods);
 
-      var start = $('#startDate').val(); 
-      if (start) //if the value is filled in
-        this.set('filterOptions.startDate', start)
-
-      var end = $('#endDate').val();
-      if (end) //if the value is filled in
-        this.set('filterOptions.endDate', end)
+      var start = Ember.$('#startDate').val(); 
+       //if the value is filled in
+       if (start) {
+        this.set('filterOptions.startDate', start);
+       }
+        
+      var end = Ember.$('#endDate').val();
+      //if the value is filled in
+      if (end) {
+        this.set('filterOptions.endDate', end);
+      }
 
       console.log(this.filterOptions); //woo, it works
     },
