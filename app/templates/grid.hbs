@@ -48,7 +48,7 @@
                   <p class="lead">
                     Keywords<br/>
                     {{#each newspaper.keywords as |word|}}
-                      <span class="label label-default">{{word}}</span>
+                      <a class="label label-default" {{action 'searchSet' word}}>{{word}}</a>
                     {{/each}}
                   </p>
                   <div class="row"></div> <!--Needed to force the list view container to size of image -->
