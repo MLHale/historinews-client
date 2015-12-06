@@ -6,8 +6,8 @@
         <div class="list-grid-well well well-sm">
           <div class="row">
             <div class="col-xs-12 col-sm-7 col-md-8">
-              <p>Showing Results: {{#if viewingPDF}}
-                {{#link-to "application"}}Index Route{{/link-to}}
+              <p>Showing {{searchResultPageData.start}}-{{searchResultPageData.end}} of {{newpaperCount}} Results : {{activeSearchOption}} : {{#if viewingPDF}}
+                {{#link-to "application"}}"{{searchText}}"{{/link-to}} : {{breadCrumbNewspaperTitle}}
               {{/if}}</p>
             </div>
             <div class="col-xs-12 col-sm-5 col-md-4">

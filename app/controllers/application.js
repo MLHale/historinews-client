@@ -5,6 +5,7 @@ export default Ember.Controller.extend({
   newspapers: {},
   searchText: '',
   viewingPDF: false, 
+  breadCrumbNewspaperTitle: '',
   searchOptions: {all: true, newspaperTitle: false, authorName: false, newspaperName: false,newspaperCreationDate: false, newspaperYear: false, keywords: false, ocrText: false,},
   filterOptions: {startDate: "", endDate: "", name: "", period: ""},
   searchFlag: false,
@@ -13,6 +14,9 @@ export default Ember.Controller.extend({
   sortedNewspapers: Ember.computed.sort('newspapers', 'sortProperty'),
   newspaperNames: Ember.computed.mapBy('sortedNewspapers', 'newspaperName'), //uses the sorted values to find all Newspaper Names
   uniqueNewspaperNames: Ember.computed.uniq('newspaperNames'), //finds all unique Newspaper Name values
+  newpaperCount: Ember.computed.alias('newspapers.length'),
+
+  activeSearchOption: '',
 
   // setup our query params
   queryParams: ["page", "perPage"],
@@ -29,6 +33,30 @@ export default Ember.Controller.extend({
   // binding the property on the paged array
   // to a property on the controller
   totalPagesBinding: "pagedNewsPapers.totalPages",
+
+  searchResultPageData: function () {
+    var page = this.get('pagedNewsPapers.page');
+    var perPage = this.get('pagedNewsPapers.perPage');
+    var length = this.get('newpaperCount');
+    var start = 0;
+    var end = 0;
+    var data = {};
+
+    if (page === 1) {
+      data = {start: page, end: perPage}
+    }
+    else {
+      page -= 1;
+      start = page * perPage;
+      end = start + perPage;
+      if (end > length) {
+        end = length;
+      }
+      data = {start: start, end: end}
+    }
+
+    return data;  
+  }.property('pagedNewsPapers.page', 'newpaperCount'),
 
   actions: {
     filterResults: function(){
@@ -68,20 +96,47 @@ export default Ember.Controller.extend({
     },
     search: function(){
       var stringSearch = {};
+      var result = '';
       var searchString = {searchText: this.get('searchText')};
       var searchOptions = this.get('searchOptions');
       var searchQuery = Ember.$.extend(stringSearch, searchString, searchOptions);
 
       var newspapers = this.store.query('newspaper', searchQuery);
-
       this.set('newspapers', newspapers);
+
+      for (var prop in searchOptions) {
+        if (searchOptions[prop] === true) {
+          if (prop === 'all') {
+            result = 'All';
+          }
+          else if (prop === 'newspaperTitle') {
+            result = 'Title';
+          }
+          else if (prop === 'authorName') {
+            result = 'Author';
+          }
+          else if (prop === 'newspaperName') {
+            result = 'Newspaper';
+          }
+          else if (prop === 'newspaperCreationDate') {
+            result = 'Date';
+          }
+          else if (prop === 'newspaperYear') {
+            result = 'Year';
+          }
+          break;
+        }  
+      }
+      this.set('activeSearchOption', result);
+
       this.set('searchFlag', true);
       
       Ember.$(":checkbox").prop("checked", false); // Resets all checkboxes whenever something is searched for
     },
     selectFilter: function(selection, component) { 
       var searchOptions = this.get('searchOptions');
-      
+      var result = '';
+
       for (var prop in searchOptions) {
         if (prop === selection) {
           searchOptions[prop] = true;
