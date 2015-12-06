@@ -4,6 +4,7 @@ import pagedArray from 'ember-cli-pagination/computed/paged-array';
 export default Ember.Controller.extend({
   newspapers: {},
   searchText: '',
+  viewingPDF: false, 
   searchOptions: {all: true, newspaperTitle: false, authorName: false, newspaperName: false,newspaperCreationDate: false, newspaperYear: false, keywords: false, ocrText: false,},
   filterOptions: {startDate: "", endDate: "", name: "", period: ""},
   searchFlag: false,

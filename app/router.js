@@ -6,7 +6,9 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('viewpdf');
+  this.route('newspaper', {
+    path: 'newspaper/:newspaper_id'
+  });
 });
 
 export default Router;

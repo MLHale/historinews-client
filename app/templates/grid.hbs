@@ -6,7 +6,9 @@
         <div class="list-grid-well well well-sm">
           <div class="row">
             <div class="col-xs-12 col-sm-7 col-md-8">
-              <p>I will be breadcrumbs</p>
+              <p>Showing Results: {{#if viewingPDF}}
+                {{#link-to "application"}}Index Route{{/link-to}}
+              {{/if}}</p>
             </div>
             <div class="col-xs-12 col-sm-5 col-md-4">
               <div class="sort-dropdown btn-group pull-right">
@@ -29,36 +31,42 @@
           </div>
         </div>
       </div>
-      <div id="products" class="row list-group">
-        {{#each pagedNewsPapers as |newspaper|}}
-          <div class="item col-xs-12 col-sm-4 col-md-3">
-            <div class="thumbnail">
-              <img class="image-thumbnail group list-group-image " src={{newspaper.thumb}} onerror="src='not_available.jpg'" alt="No Preview Available" />
-              <div class="caption">
-                <h3 class="group inner list-group-item-heading">
-                  {{newspaper.newspaperTitle}}</h3>
-                <p class="group inner list-group-item-text">
-                  {{newspaper.newspaperName}}<br/>
-                  Author: {{newspaper.authorName}}<br/>
-                  Date: {{moment-format newspaper.newspaperCreationDate 'MMMM Do, YYYY'}}</p>
-                <div class="row">
-                  <div class="col-xs-12 col-md-6">
-                    <p class="lead">
-                      Keywords</p>
-                  </div>
-                  <div class="col-xs-12 col-md-6">
-                    <p>{{newspaper.keywords}}</p>
+      {{#unless viewingPDF}}
+        <div id="products" class="row list-group">
+          {{#each pagedNewsPapers as |newspaper|}}
+            <div class="item col-xs-12 col-sm-4 col-md-3">
+              <div class="thumbnail">
+                {{#link-to "newspaper" newspaper}}<img class="image-thumbnail group list-group-image " src={{newspaper.thumb}} onerror="src='not_available.jpg'" alt="No Preview Available" />{{/link-to}}
+                <div class="caption">
+                  <h3 class="group inner list-group-item-heading">
+                    {{newspaper.newspaperTitle}}</h3>
+                  <p class="group inner list-group-item-text">
+                    {{newspaper.newspaperName}}<br/>
+                    Author: {{newspaper.authorName}}<br/>
+                    Date: {{moment-format newspaper.newspaperCreationDate 'MMMM Do, YYYY'}}</p>
+                  <div class="row">
+                    <div class="col-xs-12 col-md-6">
+                      <p class="lead">
+                        Keywords</p>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                      <p>{{newspaper.keywords}}</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        {{/each}}
-      </div>
+          {{/each}}
+        </div>
+      {{else}}
+        {{outlet}}
+      {{/unless}}
     </div>
     {{/render-grid}}
   </div>
-  <div class="text-center">
-    {{page-numbers content=pagedNewsPapers showFL=true}}
-  </div>
+  {{#unless viewingPDF}}
+    <div class="text-center">
+      {{page-numbers content=pagedNewsPapers showFL=true}}
+    </div>
+  {{/unless}}
 </div>
