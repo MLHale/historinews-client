@@ -191,3 +191,6 @@ body { padding-top: 70px; }
 {
     margin: 0 0 11px;
 }
+.list-group-image-restrict {
+    max-height: 200px;
+}

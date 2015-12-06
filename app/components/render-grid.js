@@ -21,7 +21,9 @@ export default Ember.Component.extend({
 			this.$('#list').click(function(event) {
 				event.preventDefault();
 				/* jshint ignore:start */
+				$('#products .item').removeClass('grid-group-item')
 				$('#products .item').addClass('list-group-item');
+				$('#products .list-group-image').addClass('list-group-image-restrict');
 				/* jshint ignore:end */
 			});
 			this.$('#grid').click(function(event) {
@@ -29,6 +31,7 @@ export default Ember.Component.extend({
 				/* jshint ignore:start */
 				$('#products .item').removeClass('list-group-item');
 				$('#products .item').addClass('grid-group-item');
+				$('#products .list-group-image').removeClass('list-group-image-restrict');
 				/* jshint ignore:end */
 			});
 			/* jshint ignore:start */
