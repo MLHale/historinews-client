@@ -211,3 +211,20 @@ position: absolute; top: 0; left: 0; width: 100%; height: 100%;  padding-bottom:
 .list-group-image-restrict {
     max-height: 200px;
 }
+
+/* PDF viewer */
+.iframe-div {
+    position: relative;
+    margin-top: -20px;
+    padding-bottom: 77.27%; /*<-- aspect ratio for 8.5x11 paper */
+    /*padding-top: 35px; <!-- only for youtube vids */
+    height: 0;
+    overflow: hidden;
+}
+.iframe-div iframe {
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

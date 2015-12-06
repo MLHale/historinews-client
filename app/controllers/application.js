@@ -137,12 +137,6 @@ export default Ember.Controller.extend({
       console.log(word);
       Ember.$('#search_bar_text').val(word);
       Ember.$('#search_bar_button').click();
-      // Get element (as in the return value of document.getElementById(id))
-    /*var viewElements = event.element;
-    var elementsInTemplate = viewElements.children;
-    var button = viewElements.getElementsByTagName('button');
-    console.log(button);*/
-    //also can use getElementsByClassName, use jQuery etc.
     },
     selectFilter: function(selection, component) { 
       var searchOptions = this.get('searchOptions');
