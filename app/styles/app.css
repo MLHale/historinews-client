@@ -23,8 +23,27 @@
   z-index: 1100;
   display: block;
 }
+.spash-text:first-letter{
+    text-transform: uppercase;
+  }
 .spash-text {
   color: #ffffff;
+  /*color: #600;*/
+  text-shadow: 3px 3px #600;
+  /*color: #424242;*/
+  font-family: "Adobe Caslon Pro", "Hoefler Text", Georgia, Garamond, Times, serif;
+  letter-spacing:0.1em;
+  text-align:center;
+  margin: 40px auto;
+  text-transform: lowercase;
+  /*line-height: 145%;*/
+  font-variant: small-caps;
+}
+h1.spash-text {
+  font-size: 4em;
+}
+h2.spash-text {
+  font-size: 2em;
 }
 
 
