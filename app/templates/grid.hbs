@@ -9,20 +9,22 @@
               <p>I will be breadcrumbs</p>
             </div>
             <div class="col-xs-12 col-sm-5 col-md-4">
-              <div class="btn-group pull-right">
-                <button id="grid" class="btn btn-default btn-sm">{{fa-icon icon="fa-th"}}</button>
-                <button id="list" class="btn btn-default btn-sm">{{fa-icon icon="fa-bars"}}</button>
+              <div class="sort-dropdown btn-group pull-right">
+                <button id="grid" class="btn btn-default">{{fa-icon icon="fa-th"}}</button>
+                <button id="list" class="btn btn-default">{{fa-icon icon="fa-bars"}}</button>
               </div>
-              <div class="sort-dropdown pull-right">
-                Sort by
-                {{#x-select value="newspaperTitle" action="selectSort"}}
-                  {{#x-option value="newspaperTitle"}}Title{{/x-option}}
-                  {{#x-option value="authorName"}}Author{{/x-option}}
-                  {{#x-option value="newspaperName"}}Newspaper{{/x-option}}
-                  {{#x-option value="newspaperCreationDate"}}Date{{/x-option}}
-                  {{#x-option value="newspaperYear"}}Year{{/x-option}}
-                {{/x-select}}
-              </div>
+              <form class="form-inline">
+                <div class="form-group sort-dropdown pull-right">
+                  <label>Sort by</label>
+                  {{#x-select  class="form-control" value="newspaperTitle" action="selectSort"}}
+                    {{#x-option value="newspaperTitle"}}Title{{/x-option}}
+                    {{#x-option value="authorName"}}Author{{/x-option}}
+                    {{#x-option value="newspaperName"}}Newspaper{{/x-option}}
+                    {{#x-option value="newspaperCreationDate"}}Date{{/x-option}}
+                    {{#x-option value="newspaperYear"}}Year{{/x-option}}
+                  {{/x-select}}
+                </div>
+              </form>
             </div>
           </div>
         </div>

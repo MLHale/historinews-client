@@ -23,10 +23,10 @@
   z-index: 1100;
   display: block;
 }
-.spash-text:first-letter{
+.splash-text:first-letter{
     text-transform: uppercase;
   }
-.spash-text {
+.splash-text {
   color: #ffffff;
   /*color: #600;*/
   text-shadow: 3px 3px #600;
@@ -39,13 +39,17 @@
   /*line-height: 145%;*/
   font-variant: small-caps;
 }
-h1.spash-text {
+h1.splash-text {
   font-size: 4em;
 }
-h2.spash-text {
-  font-size: 2em;
+h2.splash-text {
+  font-size: 2.5em;
 }
 
+/* Nav bar */
+.navbar-brand {
+  font-family: "Old English Text MT";
+}
 
 /* search bar */
 #search_bar_select {
@@ -71,7 +75,8 @@ body { padding-top: 70px; }
 }
 
 .sort-dropdown {
-  padding: .5em;
+  margin-left: .25em;
+  margin-right: .25em;
 }
 /*
  * Sidebar
