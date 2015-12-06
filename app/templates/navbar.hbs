@@ -2,6 +2,12 @@
   <!--<div class="container-fluid">-->
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
       <a class="navbar-brand" href="#"  {{action 'reset'}}>HistoriNews</a>
     </div>
 
@@ -24,7 +30,7 @@
             {{/x-select}}
             {{input id="search_bar_text" type="text" value=searchText class="form-control" placeholder="Enter something to search"}}
               <span class="input-group-btn">
-                  <button class="btn btn-default no-border-left" type="submit" {{action 'search'}}>{{fa-icon icon="fa-search"}}</button>
+                  <button id="search_bar_button" class="btn btn-default no-border-left" type="submit" {{action 'search'}}>{{fa-icon icon="fa-search"}}</button>
               </span>
           </div>
         </form>

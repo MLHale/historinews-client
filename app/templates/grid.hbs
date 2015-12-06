@@ -10,7 +10,7 @@
                 {{#link-to "application"}}"{{searchText}}"{{/link-to}} : {{breadCrumbNewspaperTitle}}
               {{/if}}</p>
             </div>
-            <div class="col-xs-12 col-sm-5 col-md-4">
+            <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4"><!--col-xs-12 col-sm-5 col-md-4">-->
               <div class="sort-dropdown btn-group pull-right">
                 <button id="grid" class="btn btn-default">{{fa-icon icon="fa-th"}}</button>
                 <button id="list" class="btn btn-default">{{fa-icon icon="fa-bars"}}</button>
@@ -18,7 +18,7 @@
               <form class="form-inline">
                 <div class="form-group sort-dropdown pull-right">
                   <label>Sort by</label>
-                  {{#x-select  class="form-control" value="newspaperTitle" action="selectSort"}}
+                  {{#x-select  id="sort-select" class="form-control" value="newspaperTitle" action="selectSort"}}
                     {{#x-option value="newspaperTitle"}}Title{{/x-option}}
                     {{#x-option value="authorName"}}Author{{/x-option}}
                     {{#x-option value="newspaperName"}}Newspaper{{/x-option}}
@@ -41,18 +41,17 @@
                   <h3 class="group inner list-group-item-heading">
                     {{newspaper.newspaperTitle}}</h3>
                   <p class="group inner list-group-item-text">
-                    {{newspaper.newspaperName}}<br/>
-                    Author: {{newspaper.authorName}}<br/>
-                    Date: {{moment-format newspaper.newspaperCreationDate 'MMMM Do, YYYY'}}</p>
-                  <div class="row">
-                    <div class="col-xs-12 col-md-6">
-                      <p class="lead">
-                        Keywords</p>
-                    </div>
-                    <div class="col-xs-12 col-md-6">
-                      <p>{{newspaper.keywords}}</p>
-                    </div>
-                  </div>
+                    <strong>{{newspaper.newspaperName}}</strong><br/>
+                    <strong>Author:</strong> {{newspaper.authorName}}<br/>
+                    <strong>Date:</strong> {{moment-format newspaper.newspaperCreationDate 'MMMM Do, YYYY'}}
+                  </p>
+                  <p class="lead">
+                    Keywords<br/>
+                    {{#each newspaper.keywords as |word|}}
+                      <a class="label label-default" {{action 'searchSet' word}}>{{word}}</a>
+                    {{/each}}
+                  </p>
+                  <div class="row"></div> <!--Needed to force the list view container to size of image -->
                 </div>
               </div>
             </div>
