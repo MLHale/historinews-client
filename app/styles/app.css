@@ -66,7 +66,10 @@ h2.splash-text {
   width: 100%;
 }
 
-body { padding-top: 70px; }
+body { 
+  padding-top: 70px;
+  font-family: "Old English Text MT"; /* Comment out to return to default font */
+}
 
 .center {
      float: none;
@@ -74,10 +77,7 @@ body { padding-top: 70px; }
      margin-right: auto;
 }
 
-.sort-dropdown {
-  margin-left: .25em;
-  margin-right: .25em;
-}
+
 /*
  * Sidebar
  */
@@ -116,7 +116,7 @@ body { padding-top: 70px; }
 .nav-sidebar > .active > a:hover,
 .nav-sidebar > .active > a:focus {
   color: #fff;
-  background-color: #428bca;
+  background-color: #555; /*#428bca;*/
 }
 
 
@@ -125,6 +125,17 @@ body { padding-top: 70px; }
 .list-grid-well{
     margin-top: -20px;
 }
+#sort-select {
+  width: auto;
+  display: inline-block;
+}
+.sort-dropdown {
+  margin-left: .25em;
+  margin-right: .25em;
+  margin-bottom: 0;
+}
+
+
 /*@media(max-width:767px) {
     .list-grid-well {
         display: none;
