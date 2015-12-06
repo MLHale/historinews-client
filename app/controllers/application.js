@@ -43,7 +43,7 @@ export default Ember.Controller.extend({
     var data = {};
 
     if (page === 1) {
-      data = {start: page, end: perPage}
+      data = {start: page, end: perPage};
     }
     else {
       page -= 1;
@@ -52,7 +52,7 @@ export default Ember.Controller.extend({
       if (end > length) {
         end = length;
       }
-      data = {start: start, end: end}
+      data = {start: start, end: end};
     }
 
     return data;  
@@ -146,7 +146,6 @@ export default Ember.Controller.extend({
     },
     selectFilter: function(selection, component) { 
       var searchOptions = this.get('searchOptions');
-      var result = '';
 
       for (var prop in searchOptions) {
         if (prop === selection) {
