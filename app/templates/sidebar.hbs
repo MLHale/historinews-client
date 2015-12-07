@@ -27,10 +27,11 @@
             <!--bootstrap-datepicker autoclose=true startDate="01/01/1900" startView="decade" placeholder="Start Date" class="form-control" id="startDate" defaultViewDate="{month: '04',day:'15', year: '1899'}"}}-->
             <input id="endDate" placeholder="End Date" type="text" class="form-control ember-view ember-text-field">
             <!--bootstrap-datepicker autoclose=true startDate='01/01/1900' startView="decade" placeholder="End Date" class="form-control" id="endDate"}}-->
+            <br>
             <span class="input-group-btn">
                 <button class="btn btn-default no-border-left" type="submit" {{action 'filterResults'}}>{{fa-icon icon="fa-arrow-right"}}</button>
             </span>
-            <br>
+            
             {{/render-sidebar}}
           </div>
           </div>
