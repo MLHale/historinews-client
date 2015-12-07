@@ -108,6 +108,16 @@ position: absolute; top: 0; left: 0; width: 100%; height: 100%;  padding-bottom:
   }
 }
 
+/*side bar date pickers */
+#startDate {
+  width: 50%;
+}
+#endDate {
+  width: 50%;
+}
+
+
+
 /* Sidebar navigation */
 .nav-sidebar {
   margin-right: -21px; /* 20px padding + 1px border */
