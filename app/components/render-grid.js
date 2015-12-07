@@ -1,16 +1,6 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-	actions: {
-
-		test: function(){
-			alert("hit test action");
-			//var auth = this.get('authControllerChild');
-			//console.log('in nav bar sending login to auth controller');
-			//auth.send('logout');
-		},
-	},
-
 	didInsertElement: function () {
 		this._super();
 
