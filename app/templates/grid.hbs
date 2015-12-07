@@ -1,0 +1,71 @@
+<div class="col-sm-10 col-sm-offset-2">
+  <div class="row">
+    {{#render-grid}}
+    <div class="container-fluid">
+      <div class="row">
+        <div class="list-grid-well well well-sm">
+          <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-7 col-lg-8">
+              <p>Showing {{searchResultPageData.start}}-{{searchResultPageData.end}} of {{newpaperCount}} Results : {{activeSearchOption}} : {{#if viewingPDF}}
+                {{#link-to "application"}}"{{searchText}}"{{/link-to}} : {{breadCrumbNewspaperTitle}}
+              {{/if}}</p>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4"><!--col-xs-12 col-sm-5 col-md-4">-->
+              <div class="sort-dropdown btn-group pull-right">
+                <button id="grid" class="btn btn-default">{{fa-icon icon="fa-th"}}</button>
+                <button id="list" class="btn btn-default">{{fa-icon icon="fa-bars"}}</button>
+              </div>
+              <form class="form-inline">
+                <div class="form-group sort-dropdown pull-right">
+                  <label>Sort by</label>
+                  {{#x-select  id="sort-select" class="form-control" value="newspaperTitle" action="selectSort"}}
+                    {{#x-option value="newspaperTitle"}}Title{{/x-option}}
+                    {{#x-option value="authorName"}}Author{{/x-option}}
+                    {{#x-option value="newspaperName"}}Newspaper{{/x-option}}
+                    {{#x-option value="newspaperCreationDate"}}Date{{/x-option}}
+                    {{#x-option value="newspaperYear"}}Year{{/x-option}}
+                  {{/x-select}}
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      {{#unless viewingPDF}}
+        <div id="products" class="row list-group">
+          {{#each pagedNewsPapers as |newspaper|}}
+            <div class="item col-xs-12 col-sm-4 col-md-3">
+              <div class="thumbnail">
+                {{#link-to "newspaper" newspaper}}<img class="img-responsive group list-group-image " src={{newspaper.thumb}} onerror="src='not_available.jpg'" alt="No Preview Available" />{{/link-to}}
+                <div class="caption">
+                  <h3 class="group inner list-group-item-heading">
+                    {{newspaper.newspaperTitle}}</h3>
+                  <p class="group inner list-group-item-text">
+                    <strong>{{newspaper.newspaperName}}</strong><br/>
+                    <strong>Author:</strong> {{newspaper.authorName}}<br/>
+                    <strong>Date:</strong> {{moment-format newspaper.newspaperCreationDate 'MMMM Do, YYYY'}}
+                  </p>
+                  <p class="lead">
+                    Keywords<br/>
+                    {{#each newspaper.keywords as |word|}}
+                      <a class="label label-default" {{action 'searchSet' word}}>{{word}}</a>
+                    {{/each}}
+                  </p>
+                  <div class="row"></div> <!--Needed to force the list view container to size of image -->
+                </div>
+              </div>
+            </div>
+          {{/each}}
+        </div>
+      {{else}}
+        {{outlet}}
+      {{/unless}}
+    </div>
+    {{/render-grid}}
+  </div>
+  {{#unless viewingPDF}}
+    <div class="text-center">
+      {{page-numbers content=pagedNewsPapers showFL=true}}
+    </div>
+  {{/unless}}
+</div>

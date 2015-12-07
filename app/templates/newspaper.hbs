@@ -1,0 +1,13 @@
+{{#render-iframe}}
+<!--<div class="container-fluid">-->
+  <div class="row">
+    <div class="iframe-div col-xs-12">
+      <iframe id="pdf-iframe" src="{{model.pdfLocation}}" />
+    </div>
+  </div>
+<!--</div>-->
+{{/render-iframe}}
+{{outlet}}
+
+
+<!--document.getElementById("pdf-iframe").contentDocument.location.reload(true);-->
