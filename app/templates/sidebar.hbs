@@ -21,12 +21,14 @@
         </div>
         <li><strong>Year</strong></li>
           <div> <!--uses bootstrap-datepicker to create a calendar pop-up to select a specific date-->
-            {{bootstrap-datepicker autoclose=true startDate="01/01/1990" startView="decade" placeholder="Start Date" class="form-control" id="startDate"}}
+            {{#render-sidebar}}
+            {{bootstrap-datepicker autoclose=true startDate="01/01/1900" startView="decade" placeholder="Start Date" class="form-control" id="startDate"}}
             {{bootstrap-datepicker autoclose=true startDate='01/01/1900' startView="decade" placeholder="End Date" class="form-control" id="endDate"}}
             <span class="input-group-btn">
                 <button class="btn btn-default no-border-left" type="submit" {{action 'filterResults'}}>{{fa-icon icon="fa-arrow-right"}}</button>
             </span>
             <br>
+            {{/render-sidebar}}
           </div>
     </div>
   </ul>
