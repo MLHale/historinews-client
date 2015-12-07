@@ -58,6 +58,10 @@ export default Ember.Controller.extend({
     return data;  
   }.property('pagedNewsPapers.page', 'newpaperCount'),
 
+  pageChanged: function () {
+    window.scrollTo(0,0);
+  }.observes('pagedNewsPapers.page'),
+
   actions: {
     filterResults: function(){
       var checkedNewspaperNames = Ember.$('.NewspaperName:checkbox:checked').map(function() { //Finds all selected Newspaper Names
