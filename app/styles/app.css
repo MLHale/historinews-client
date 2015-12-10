@@ -1,6 +1,6 @@
 /*Splash page*/
 #splash-div {
-  background: url(/papers.jpg) no-repeat center center;
+  background: url(/static/ember/papers.jpg) no-repeat center center;
   background-size: cover;
   padding-top: 50px;
   /*margin-left: -15px;
@@ -68,7 +68,7 @@ h2.splash-text {
 
 body { 
   padding-top: 70px;
-  font-family: "Old English Text MT"; /* Comment out to return to default font */
+  /* font-family: "Old English Text MT"; /* Comment out to return to default font */
 }
 
 .center {
