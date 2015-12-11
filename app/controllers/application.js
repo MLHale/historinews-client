@@ -95,8 +95,8 @@ export default Ember.Controller.extend({
 
       var refineQuery = Ember.$.extend(searchString, searchOptions, filterOptions);
 
-
-      //console.log(refineQuery); //woo, it works
+      var newspapers = this.store.query('newspaper', refineQuery);
+      this.set('newspapers', newspapers);
     },
     search: function(){
       var stringSearch = {};
