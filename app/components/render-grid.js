@@ -6,7 +6,7 @@ export default Ember.Component.extend({
 
 		Ember.run.scheduleOnce('afterRender', this, function () {
 			// some jQuery UI stuff
-			console.log('afterRender ran');
+			//console.log('afterRender ran');
 
 			this.$('#list').click(function(event) {
 				event.preventDefault();

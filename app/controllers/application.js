@@ -95,8 +95,8 @@ export default Ember.Controller.extend({
 
       var refineQuery = Ember.$.extend(searchString, searchOptions, filterOptions);
 
-
-      console.log(refineQuery); //woo, it works
+      var newspapers = this.store.query('newspaper', refineQuery);
+      this.set('newspapers', newspapers);
     },
     search: function(){
       var stringSearch = {};
@@ -138,7 +138,7 @@ export default Ember.Controller.extend({
       Ember.$(":checkbox").prop("checked", false); // Resets all checkboxes whenever something is searched for
     },
     searchSet: function(word){
-      console.log(word);
+      //console.log(word);
       Ember.$('#search_bar_text').val(word);
       Ember.$('#search_bar_button').click();
     },

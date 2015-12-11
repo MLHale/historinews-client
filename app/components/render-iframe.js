@@ -6,10 +6,10 @@ export default Ember.Component.extend({
 
 		Ember.run.scheduleOnce('afterRender', this, function () {
 			// some jQuery UI stuff
-			console.log('afterRender ran');
+			//console.log('afterRender ran');
 
 			this.$(window).resize(function() {
-				console.log("pdf resized");
+				//console.log("pdf resized");
 				Ember.$("#pdf-iframe")[0].contentDocument.location.reload(true);
             });
 		});
