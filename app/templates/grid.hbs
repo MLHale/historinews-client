@@ -36,7 +36,7 @@
           {{#each pagedNewsPapers as |newspaper|}}
             <div class="item col-xs-12 col-sm-4 col-md-3">
               <div class="thumbnail">
-                {{#link-to "newspaper" newspaper}}<img class="img-responsive group list-group-image " src={{newspaper.thumb}} onerror="src='not_available.jpg'" alt="No Preview Available" />{{/link-to}}
+                {{#link-to "newspaper" newspaper}}<img class="img-responsive group list-group-image " src={{newspaper.thumb}} onerror="src='/static/ember/not_available.jpg'" alt="No Preview Available" />{{/link-to}}
                 <div class="caption">
                   <h3 class="group inner list-group-item-heading">
                     {{newspaper.newspaperTitle}}</h3>

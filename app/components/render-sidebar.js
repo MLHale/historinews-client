@@ -6,7 +6,7 @@ export default Ember.Component.extend({
 
     Ember.run.scheduleOnce('afterRender', this, function () {
       // some jQuery UI stuff
-      console.log('afterRender sidebar!');
+      //console.log('afterRender sidebar!');
 
       this.$("#startDate").datepicker({
         autoclose: true,
