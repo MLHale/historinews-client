@@ -3,6 +3,7 @@ import pagedArray from 'ember-cli-pagination/computed/paged-array';
 
 export default Ember.Controller.extend({
   newspapers: {},
+  filterNewsPapers: {},
   searchText: '',
   viewingPDF: false, 
   breadCrumbNewspaperTitle: '',
@@ -12,8 +13,10 @@ export default Ember.Controller.extend({
 
   sortProperty: ['newspaperTitle'],  
   sortedNewspapers: Ember.computed.sort('newspapers', 'sortProperty'),
-  newspaperNames: Ember.computed.mapBy('sortedNewspapers', 'newspaperName'), //uses the sorted values to find all Newspaper Names
+  sortedFilterNewspapers: Ember.computed.sort('filterNewsPapers', 'sortProperty'),
+  newspaperNames: Ember.computed.mapBy('sortedFilterNewspapers', 'newspaperName'), //uses the sorted values to find all Newspaper Names
   uniqueNewspaperNames: Ember.computed.uniq('newspaperNames'), //finds all unique Newspaper Name values
+
   newpaperCount: Ember.computed.alias('newspapers.length'),
 
   activeSearchOption: '',
@@ -43,7 +46,15 @@ export default Ember.Controller.extend({
     var data = {};
 
     if (page === 1) {
-      data = {start: page, end: perPage};
+      if (length === 0) {
+        data = {start: 0, end: 0}; 
+      }
+      else if (length < perPage) {
+        data = {start: page, end: length};
+      }
+      else {
+        data = {start: page, end: perPage};
+     }
     }
     else {
       page -= 1;
@@ -76,27 +87,36 @@ export default Ember.Controller.extend({
       checkedPeriods = checkedPeriods.join("|"); //deliminated by |
       this.set('filterOptions.period', checkedPeriods);
 
-      var start = Ember.$('#startDate').val(); 
-       //if the value is filled in
-       if (start) {
-        this.set('filterOptions.startDate', start);
-       }
-        
+      var start = Ember.$('#startDate').val();
       var end = Ember.$('#endDate').val();
-      //if the value is filled in
-      if (end) {
+
+      if (start && end) {
+       this.set('filterOptions.startDate', start);
+       this.set('filterOptions.endDate', end);
+      }
+      else if (start && !end)
+      {
+        this.set('filterOptions.startDate', start);
+        this.set('filterOptions.endDate', "01/01/3000");
+      }
+      else if (!start && end)
+      {
+        this.set('filterOptions.startDate', "01/01/1800");
         this.set('filterOptions.endDate', end);
       }
+     else {
+      this.set('filterOptions.startDate', "");
+      this.set('filterOptions.endDate', "");
+     }
 
-      var searchString = {searchText: this.get('searchText')};
-      var searchOptions = this.get('searchOptions');
-      var filterOptions = this.get('filterOptions');
+     var searchString = {searchText: this.get('searchText')};
+     var searchOptions = this.get('searchOptions');
+     var filterOptions = this.get('filterOptions');
 
+     var refineQuery = Ember.$.extend(searchString, searchOptions, filterOptions);
 
-      var refineQuery = Ember.$.extend(searchString, searchOptions, filterOptions);
-
-      var newspapers = this.store.query('newspaper', refineQuery);
-      this.set('newspapers', newspapers);
+     var newspapers = this.store.query('newspaper', refineQuery);
+     this.set('newspapers', newspapers);
     },
     search: function(){
       var stringSearch = {};
@@ -107,6 +127,7 @@ export default Ember.Controller.extend({
 
       var newspapers = this.store.query('newspaper', searchQuery);
       this.set('newspapers', newspapers);
+      this.set('filterNewsPapers', newspapers);
 
       for (var prop in searchOptions) {
         if (searchOptions[prop] === true) {
@@ -128,9 +149,16 @@ export default Ember.Controller.extend({
           else if (prop === 'newspaperYear') {
             result = 'Year';
           }
+          else if (prop === 'keywords') {
+            result = 'Keywords';
+          }
+          else if (prop === 'ocrText') {
+            result = 'Content';
+          }
           break;
         }  
       }
+      
       this.set('activeSearchOption', result);
 
       this.set('searchFlag', true);
