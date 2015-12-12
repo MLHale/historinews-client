@@ -20,7 +20,7 @@ export default Ember.Component.extend({
         viewMode: "years",
         minViewMode: "years"*/
 
-        format: "mm/yyyy",
+        format: "mm/dd/yyyy",
         viewMode: "months",
         minViewMode: "months"
         //format: 'mm/dd/yyyy'
@@ -38,7 +38,7 @@ export default Ember.Component.extend({
         viewMode: "years",
         minViewMode: "years"*/
 
-        format: "mm/yyyy",
+        format: "mm/dd/yyyy",
         viewMode: "months",
         minViewMode: "months"
         //format: 'mm/dd/yyyy'
