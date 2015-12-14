@@ -162,6 +162,7 @@ export default Ember.Controller.extend({
       this.set('activeSearchOption', result);
 
       this.set('searchFlag', true);
+      this.set('viewingPDF', false);
       
       Ember.$(":checkbox").prop("checked", false); // Resets all checkboxes whenever something is searched for
     },
